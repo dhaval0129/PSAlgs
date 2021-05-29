@@ -1,0 +1,5 @@
+
+1] Backtracking problems can be solved with loop on outer side and recursive call
+   from inside the loop to same function
+
+2] There utility methods like print solution, isSafe function to check validity of solution

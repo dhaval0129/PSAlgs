@@ -1,0 +1,10 @@
+Backtracking Algorithm Problems
+
+Backtracking is a general algorithm for finding all (or some) 
+solutions to some computational problems, notably constraint satisfaction problems, 
+that incrementally builds candidates to the solutions, and abandons 
+each partial candidate ("backtracks") as soon as it determines that the 
+candidate cannot possibly be completed to a valid solution.
+
+1] Backtracking problems can be solved using combination of loop on top and recursion inside
+2] General approach for backtracking is recursion inside for loop
