@@ -16,7 +16,7 @@ import java.util.LinkedList;
  * Graph and It's representation ( Adjacency List )
  *  
  */
-public class AdjListNode {
+public class AdjacencyListNode {
 
     static class Graph {
 
@@ -32,7 +32,7 @@ public class AdjListNode {
             // Create a new list for each vertex
             // such that adjacent nodes can be stored
             for (int i = 0; i < V; i++) {
-                adjListArray[i] = new LinkedList<>();
+                adjListArray[i] = new LinkedList<Integer>();
             }
         }
     }

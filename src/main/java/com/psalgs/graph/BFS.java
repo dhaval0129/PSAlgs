@@ -32,7 +32,7 @@ public class BFS {
         adj = new LinkedList[V];
 
         for (int i = 0; i < V; i++) {
-            adj[i] = new LinkedList();
+            adj[i] = new LinkedList<Integer>();
         }
     }
 
@@ -40,12 +40,12 @@ public class BFS {
         adj[v].add(w);
     }
 
-    private void BFS(int s) {
+    private void bfsTraversal(int s) {
         // Mark all the vertices as not visited ( by default )
         boolean visited[] = new boolean[V];
 
         // create queue for BFS
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<Integer>();
 
         // Mark the current node as visited and enqueue it
         visited[s] = true;
@@ -82,6 +82,6 @@ public class BFS {
         g.addEdge(3, 3);
 
         System.out.println("Following is Breath First Traversal (starting from vertex 2) ");
-        g.BFS(2);
+        g.bfsTraversal(2);
     }
 }

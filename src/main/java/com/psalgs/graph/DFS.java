@@ -31,7 +31,7 @@ public class DFS {
         adj = new LinkedList[V];
 
         for (int i = 0; i < V; i++) {
-            adj[i] = new LinkedList();
+            adj[i] = new LinkedList<Integer>();
         }
     }
 
@@ -39,7 +39,7 @@ public class DFS {
         adj[v].add(w); // Add w to v's list.
     }
 
-    private void DFS(int v) {
+    private void dfsTraversal(int v) {
         // Mark all the vertices as not visited( set as
         // false by default in java )
         boolean visited[] = new boolean[V];
@@ -53,7 +53,7 @@ public class DFS {
         visited[v] = true;
         System.out.print(v + " ");
 
-        // Recur for all the vertices adjacent to this vertex
+        // Recursion for all the vertices adjacent to this vertex
         Iterator<Integer> itr = adj[v].listIterator();
 
         while (itr.hasNext()) {
@@ -76,7 +76,7 @@ public class DFS {
         g.addEdge(3, 3);
 
         System.out.println("Following is Depth First Traversal (starting from vertex 2)");
-        g.DFS(2);
+        g.dfsTraversal(2);
         System.out.println();
     }
 

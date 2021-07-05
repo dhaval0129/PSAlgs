@@ -31,7 +31,7 @@ public class DFS_Itr {
             adj = new LinkedList[V];
 
             for (int i = 0; i < adj.length; i++) {
-                adj[i] = new LinkedList<>();
+                adj[i] = new LinkedList<Integer>();
             }
         }
 
