@@ -19,61 +19,74 @@ import java.util.Stack;
  * Hint: Use Stack
  *
  */
-public class DFS_Itr {
+class Graph {
 
-    static class Graph {
+    private int V; // number of vertices
+    private LinkedList<Integer> adj[]; // adjacency lists
 
-        int V; // number of vertices
-        LinkedList<Integer> adj[]; // adjacency lists
+    /**
+     * 
+     * @param v
+     */
+    public Graph(int v) {
+        this.V = v;
+        adj = new LinkedList[V];
 
-        Graph(int v) {
-            this.V = v;
-            adj = new LinkedList[V];
+        for (int i = 0; i < adj.length; i++) {
+            adj[i] = new LinkedList<Integer>();
+        }
+    }
 
-            for (int i = 0; i < adj.length; i++) {
-                adj[i] = new LinkedList<Integer>();
+    /**
+     * 
+     * @param v
+     * @param w
+     */
+    public void addEdge(int v, int w) {
+        adj[v].add(w);
+    }
+
+    /**
+     * 
+     * @param s
+     */
+    public void DFS(int s) {
+        // Mark all vertices as not visited
+        boolean visited[] = new boolean[V];
+
+        // create a stack for DFS
+        Stack<Integer> stack = new Stack<>();
+
+        // push the current source node
+        stack.push(s);
+
+        // Stack may contain same vertex twice. So
+        // we need to print the popped item only
+        // if it is not visited.
+        while (!stack.isEmpty()) {
+            s = stack.pop();
+
+            if (!visited[s]) {
+                System.out.print(s + " ");
+                visited[s] = true;
             }
-        }
 
-        private void addEdge(int v, int w) {
-            adj[v].add(w);
-        }
+            // Get all adjacent vertices of the popped vertex s
+            // If a adjacent has not been visited, then puah it
+            // to the stack.
+            Iterator<Integer> itr = adj[s].iterator();
 
-        private void DFS(int s) {
-            // Mark all vertices as not visited
-            boolean visited[] = new boolean[V];
-
-            // create a stack for DFS
-            Stack<Integer> stack = new Stack<>();
-
-            // push the current source node
-            stack.push(s);
-
-            // Stack may contain same vertex twice. So
-            // we need to print the popped item only
-            // if it is not visited.
-            while (!stack.isEmpty()) {
-                s = stack.pop();
-
-                if (!visited[s]) {
-                    System.out.print(s + " ");
-                    visited[s] = true;
-                }
-
-                // Get all adjacent vertices of the popped vertex s
-                // If a adjacent has not been visited, then puah it
-                // to the stack.
-                Iterator<Integer> itr = adj[s].iterator();
-
-                while (itr.hasNext()) {
-                    int i = itr.next();
-                    if (!visited[i]) {
-                        stack.push(i);
-                    }
+            while (itr.hasNext()) {
+                int i = itr.next();
+                if (!visited[i]) {
+                    stack.push(i);
                 }
             }
         }
     }
+}
+
+public class DFS_Itr {
 
     public static void main(String args[]) {
         // Total 5 vertices in graph
@@ -85,7 +98,7 @@ public class DFS_Itr {
         g.addEdge(0, 3);
         g.addEdge(1, 4);
 
-        System.out.println("Following is the Depth First Traversal");
+        System.out.println("Following is the Depth First Traversal (starting from vertex 0)");
         g.DFS(0);
     }
 }
