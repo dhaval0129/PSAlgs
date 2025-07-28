@@ -12,6 +12,7 @@ package com.psalgs.array.arrangement;
  * http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
  *
  * Largest Sum Contiguous Sub-array ( Kadane's Algorithm )
+ * Also Known as Maximum sub array (result only cares about sum and not start and end index)
  *
  * Time Complexity O(n)
  * 
